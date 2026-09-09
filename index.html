@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffd9eb" />
+  <title>For Tanvi 💗</title>
+  <style>
+    :root {
+      --pink-1: #fff2f8;
+      --pink-2: #ffd7e9;
+      --pink-3: #ffb8d5;
+      --pink-4: #f57fb1;
+      --purple-1: #faf7ff;
+      --purple-2: #eee7ff;
+      --purple-3: #d9ccff;
+      --ink: #5e4057;
+      --muted: #8d6c86;
+      --white: rgba(255, 255, 255, 0.88);
+      --shadow: 0 24px 70px rgba(164, 94, 135, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      color: var(--ink);
+      font-family: Inter, ui-rounded, "SF Pro Rounded", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,.95) 0 7%, transparent 24%),
+        radial-gradient(circle at 85% 18%, rgba(255,255,255,.82) 0 6%, transparent 25%),
+        linear-gradient(145deg, var(--pink-1) 0%, var(--purple-1) 46%, #fff8fc 100%);
+      overflow-x: hidden;
+    }
+
+    .glow {
+      position: fixed;
+      width: 38vmax;
+      height: 38vmax;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: .34;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow.one {
+      background: #ffc5df;
+      top: -15vmax;
+      left: -12vmax;
+    }
+
+    .glow.two {
+      background: #ded4ff;
+      right: -14vmax;
+      bottom: -14vmax;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 1000px);
+      min-height: 100svh;
+      margin: 0 auto;
+      padding: clamp(20px, 4vw, 42px) 18px calc(34px + env(safe-area-inset-bottom));
+      display: grid;
+      place-items: center;
+    }
+
+    .card {
+      position: relative;
+      width: min(100%, 780px);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 32px;
+      padding: clamp(26px, 5vw, 54px);
+      text-align: center;
+      background: linear-gradient(180deg, rgba(255,255,255,.83), rgba(255,255,255,.66));
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .card::before,
+    .card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      z-index: -1;
+      filter: blur(2px);
+    }
+
+    .card::before {
+      width: 190px;
+      height: 190px;
+      right: -70px;
+      top: -70px;
+      background: rgba(255, 182, 215, .25);
+    }
+
+    .card::after {
+      width: 160px;
+      height: 160px;
+      left: -55px;
+      bottom: -60px;
+      background: rgba(213, 199, 255, .26);
+    }
+
+    .tiny-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(245,127,177,.18);
+      box-shadow: 0 8px 24px rgba(164, 94, 135, 0.08);
+      color: #986681;
+      font-size: clamp(.78rem, 2.4vw, .9rem);
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+
+    .lily-wrap {
+      width: clamp(95px, 18vw, 132px);
+      margin: 20px auto 6px;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 10px 14px rgba(185, 117, 160, .15));
+    }
+
+    .lily-wrap svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-7px) rotate(1deg); }
+    }
+
+    h1 {
+      margin: 10px 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.25rem, 8vw, 4.45rem);
+      line-height: .98;
+      letter-spacing: -.045em;
+      color: #6c4662;
+    }
+
+    .sub {
+      margin: 0 auto;
+      max-width: 590px;
+      color: var(--muted);
+      font-size: clamp(1rem, 3vw, 1.13rem);
+      line-height: 1.75;
+    }
+
+    .heartline {
+      margin: 22px auto 0;
+      width: min(100%, 560px);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(245,127,177,.45), rgba(212,198,255,.65), transparent);
+    }
+
+    .apology {
+      width: min(100%, 600px);
+      margin: 22px auto 0;
+      padding: 20px 22px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(255,239,247,.85), rgba(246,242,255,.86));
+      border: 1px solid rgba(245,127,177,.12);
+      color: #76566c;
+      font-size: clamp(.96rem, 2.7vw, 1.06rem);
+      line-height: 1.75;
+    }
+
+    .question {
+      margin: 26px 0 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #6f4963;
+      font-size: clamp(1.45rem, 5vw, 2.1rem);
+      font-weight: 700;
+    }
+
+    .buttons {
+      min-height: 92px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease, padding .25s ease, font-size .25s ease;
+      touch-action: manipulation;
+      min-width: 112px;
+      min-height: 52px;
+    }
+
+    #yesBtn {
+      color: #fff;
+      background: linear-gradient(135deg, #f68bb8, #ed6ea6);
+      box-shadow: 0 12px 26px rgba(237,110,166,.28);
+      padding: 14px 25px;
+      font-size: 1rem;
+    }
+
+    #yesBtn:hover,
+    #yesBtn:focus-visible {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 16px 32px rgba(237,110,166,.34);
+      outline: none;
+    }
+
+    #noBtn {
+      color: #785f78;
+      background: #f1ebff;
+      box-shadow: 0 10px 24px rgba(145,121,190,.13);
+      padding: 14px 25px;
+      font-size: 1rem;
+    }
+
+    #noBtn:hover,
+    #noBtn:focus-visible {
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .micro {
+      margin-top: 12px;
+      min-height: 24px;
+      color: #9b7890;
+      font-size: .88rem;
+    }
+
+    .success {
+      display: none;
+      margin-top: 23px;
+      padding: 26px 18px 20px;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #fff0f7, #f3efff);
+      border: 1px solid rgba(245,127,177,.2);
+      animation: popIn .55s cubic-bezier(.2,.9,.25,1.25) both;
+    }
+
+    .success.show { display: block; }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(.82) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .success .big {
+      font-size: clamp(2.6rem, 10vw, 5.2rem);
+      line-height: 1;
+      animation: bounce 1.1s ease-in-out infinite alternate;
+    }
+
+    @keyframes bounce {
+      to { transform: translateY(-5px) rotate(4deg); }
+    }
+
+    .success h2 {
+      margin: 10px 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.7rem, 6vw, 2.7rem);
+      color: #70485f;
+    }
+
+    .success p {
+      margin: 0;
+      color: #8d6d83;
+      line-height: 1.65;
+    }
+
+    .footer {
+      margin-top: 18px;
+      color: #a78ba0;
+      font-size: .78rem;
+    }
+
+    body.forgiven .tiny-note,
+    body.forgiven .lily-wrap,
+    body.forgiven #title,
+    body.forgiven .sub,
+    body.forgiven .heartline,
+    body.forgiven .apology,
+    body.forgiven #forgiveQuestion,
+    body.forgiven #buttonsWrap,
+    body.forgiven #microcopy,
+    body.forgiven .footer {
+      display: none !important;
+    }
+
+    body.forgiven .page {
+      min-height: 100svh;
+      padding-top: 18px;
+      padding-bottom: calc(18px + env(safe-area-inset-bottom));
+    }
+
+    body.forgiven .card {
+      min-height: min(82svh, 720px);
+      display: grid;
+      place-items: center;
+      overflow: visible;
+    }
+
+    body.forgiven .success {
+      width: min(100%, 650px);
+      margin: 0;
+      padding: clamp(28px, 6vw, 46px) clamp(18px, 5vw, 38px);
+    }
+
+    .success-lily {
+      width: clamp(96px, 22vw, 132px);
+      margin: 0 auto 14px;
+      padding: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255,255,255,.98) 0%, rgba(255,244,250,.92) 58%, rgba(238,224,255,.7) 100%);
+      box-shadow:
+        0 10px 24px rgba(132, 76, 117, .16),
+        0 0 0 1px rgba(203, 139, 183, .22);
+      filter: drop-shadow(0 7px 10px rgba(130, 74, 113, .22));
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .success-lily svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .falling-lily {
+      position: fixed;
+      z-index: 30;
+      top: -90px;
+      pointer-events: none;
+      width: var(--size);
+      height: var(--size);
+      opacity: 0;
+      filter: drop-shadow(0 5px 8px rgba(145, 91, 127, .15));
+      animation: lilyFall var(--duration) linear forwards;
+      will-change: transform, opacity;
+    }
+
+    .falling-lily svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    @keyframes lilyFall {
+      0% {
+        transform: translate3d(0, -10vh, 0) rotate(var(--start-rot));
+        opacity: 0;
+      }
+      10% { opacity: .92; }
+      100% {
+        transform: translate3d(var(--drift), 118vh, 0) rotate(var(--end-rot));
+        opacity: .08;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page { padding-left: 12px; padding-right: 12px; }
+      .card { border-radius: 26px; padding: 24px 16px 28px; }
+      .apology { padding: 17px 15px; }
+      .buttons { gap: 10px; min-height: 105px; }
+      button { min-width: 102px; min-height: 50px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <main class="page">
+    <section class="card" aria-labelledby="title">
+      <div class="tiny-note">a little apology, made with love ♡</div>
+
+      <div class="lily-wrap" aria-hidden="true">
+        <svg viewBox="0 0 180 170" role="img">
+          <defs>
+            <linearGradient id="petal" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fffafc"/>
+              <stop offset=".55" stop-color="#ffe5f0"/>
+              <stop offset="1" stop-color="#e8ddff"/>
+            </linearGradient>
+            <linearGradient id="stem" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#8cbf8b"/>
+              <stop offset="1" stop-color="#5f9868"/>
+            </linearGradient>
+          </defs>
+          <path d="M92 95 C87 119, 85 143, 90 165" fill="none" stroke="url(#stem)" stroke-width="6" stroke-linecap="round"/>
+          <path d="M88 132 C65 120, 52 126, 46 142 C66 145, 80 142, 88 132Z" fill="#9fca9c" opacity=".86"/>
+          <path d="M92 148 C111 134, 127 138, 134 151 C116 156, 101 155, 92 148Z" fill="#8fbe91" opacity=".82"/>
+          <g transform="translate(90 74)">
+            <ellipse rx="19" ry="50" transform="rotate(-72) translate(0,-5)" fill="url(#petal)"/>
+            <ellipse rx="19" ry="50" transform="rotate(-36) translate(0,-7)" fill="url(#petal)"/>
+            <ellipse rx="19" ry="50" transform="rotate(0) translate(0,-8)" fill="url(#petal)"/>
+            <ellipse rx="19" ry="50" transform="rotate(36) translate(0,-7)" fill="url(#petal)"/>
+            <ellipse rx="19" ry="50" transform="rotate(72) translate(0,-5)" fill="url(#petal)"/>
+            <circle r="16" fill="#fff4b8" opacity=".9"/>
+            <g stroke="#d8a358" stroke-width="2.2" stroke-linecap="round">
+              <path d="M0 0 L-19 -18"/><path d="M0 0 L19 -18"/><path d="M0 0 L-22 6"/><path d="M0 0 L21 8"/>
+            </g>
+            <g fill="#b97766">
+              <circle cx="-19" cy="-18" r="3"/><circle cx="19" cy="-18" r="3"/><circle cx="-22" cy="6" r="3"/><circle cx="21" cy="8" r="3"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <h1 id="title">Tanvi, I’m sorry.</h1>
+      <p class="sub">I said something I really shouldn’t have, and I know it upset you. I can’t undo it, but I can own it — and I genuinely mean it when I say I’m sorry.</p>
+
+      <div class="heartline"></div>
+
+      <div class="apology">
+        You’re very dear to me, and I hate that my words made you feel bad. You didn’t deserve that. I’ll be more careful with what I say, because our friendship matters to me way more than one stupid moment. 💗
+      </div>
+
+      <div class="question" id="forgiveQuestion">Will you forgive me? 🥺</div>
+
+      <div class="buttons" id="buttonsWrap">
+        <button id="yesBtn" type="button">Yes 💕</button>
+        <button id="noBtn" type="button">No 🙄</button>
+      </div>
+      <div class="micro" id="microcopy" aria-live="polite">Choose carefully… the buttons have opinions 👀</div>
+
+      <div class="success" id="successBox" aria-live="polite">
+        <div class="success-lily" aria-hidden="true">
+          <svg viewBox="0 0 180 150">
+            <defs>
+              <linearGradient id="successPetal" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset=".42" stop-color="#ffd2e5"/>
+                <stop offset=".72" stop-color="#f2b7d4"/>
+                <stop offset="1" stop-color="#cab8f4"/>
+              </linearGradient>
+            </defs>
+            <g transform="translate(90 72)">
+              <ellipse rx="18" ry="48" transform="rotate(-72) translate(0,-5)" fill="url(#successPetal)"/>
+              <ellipse rx="18" ry="48" transform="rotate(-36) translate(0,-7)" fill="url(#successPetal)"/>
+              <ellipse rx="18" ry="48" transform="rotate(0) translate(0,-8)" fill="url(#successPetal)"/>
+              <ellipse rx="18" ry="48" transform="rotate(36) translate(0,-7)" fill="url(#successPetal)"/>
+              <ellipse rx="18" ry="48" transform="rotate(72) translate(0,-5)" fill="url(#successPetal)"/>
+              <circle r="15" fill="#ffd96a" stroke="#c58b35" stroke-width="1.5" opacity=".98"/>
+              <g stroke="#d8a358" stroke-width="2.2" stroke-linecap="round">
+                <path d="M0 0 L-19 -18"/><path d="M0 0 L19 -18"/><path d="M0 0 L-22 6"/><path d="M0 0 L21 8"/>
+              </g>
+              <g fill="#b97766">
+                <circle cx="-19" cy="-18" r="3"/><circle cx="19" cy="-18" r="3"/><circle cx="-22" cy="6" r="3"/><circle cx="21" cy="8" r="3"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <h2>Thank you for forgiving me 🤍</h2>
+        <p>Tanvi, it genuinely means a lot to me. I’m really sorry for hurting you, and I’m grateful that you chose to forgive me.<br /><br />I’ll be more careful with my words, because our friendship means far more to me than one stupid mistake ever could. 💗</p>
+      </div>
+
+      <div class="footer">made especially for Tanvi 🌷</div>
+    </section>
+  </main>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const microcopy = document.getElementById('microcopy');
+    const successBox = document.getElementById('successBox');
+    const buttonsWrap = document.getElementById('buttonsWrap');
+    const forgiveQuestion = document.getElementById('forgiveQuestion');
+
+    let noClicks = 0;
+    const messages = [
+      "are you sureee? 🥺",
+      "Tanvi pls 😭",
+      "the Yes button is looking kinda cute though… 💗",
+      "okay now you’re just bullying me 😔",
+      "last chance to be nice 😭💕",
+      "I’m literally running out of No button 😭"
+    ];
+
+    noBtn.addEventListener('click', () => {
+      noClicks++;
+
+      const yesScale = Math.min(1 + noClicks * 0.24, 2.6);
+      const noScale = Math.max(1 - noClicks * 0.13, 0.28);
+
+      yesBtn.style.transform = `scale(${yesScale})`;
+      yesBtn.style.zIndex = '3';
+      noBtn.style.transform = `scale(${noScale})`;
+      noBtn.style.opacity = Math.max(1 - noClicks * 0.09, 0.28);
+
+      microcopy.textContent = messages[Math.min(noClicks - 1, messages.length - 1)];
+
+      if (noClicks >= 7) {
+        noBtn.textContent = 'tiny no 😭';
+      }
+    });
+
+    yesBtn.addEventListener('click', () => {
+      document.body.classList.add('forgiven');
+      successBox.classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      launchLilies(28);
+
+      const lilyInterval = setInterval(() => {
+        if (!document.body.classList.contains('forgiven')) {
+          clearInterval(lilyInterval);
+          return;
+        }
+        launchLilies(5);
+      }, 2400);
+    });
+
+    function lilyMarkup() {
+      return `
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <defs>
+            <linearGradient id="fp${Math.random().toString(36).slice(2)}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fffafd"/>
+              <stop offset=".58" stop-color="#ffdbea"/>
+              <stop offset="1" stop-color="#e6dbff"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(50 50)">
+            <ellipse rx="10" ry="27" transform="rotate(-72) translate(0,-3)" fill="#fff2f8"/>
+            <ellipse rx="10" ry="27" transform="rotate(-36) translate(0,-4)" fill="#ffe2ee"/>
+            <ellipse rx="10" ry="27" transform="rotate(0) translate(0,-5)" fill="#f8ecff"/>
+            <ellipse rx="10" ry="27" transform="rotate(36) translate(0,-4)" fill="#ffe4f0"/>
+            <ellipse rx="10" ry="27" transform="rotate(72) translate(0,-3)" fill="#eee5ff"/>
+            <circle r="8" fill="#fff0ad"/>
+            <g stroke="#d6a15a" stroke-width="1.5" stroke-linecap="round">
+              <path d="M0 0 L-11 -11"/><path d="M0 0 L11 -11"/>
+              <path d="M0 0 L-13 4"/><path d="M0 0 L13 5"/>
+            </g>
+            <g fill="#b87466">
+              <circle cx="-11" cy="-11" r="2"/><circle cx="11" cy="-11" r="2"/>
+              <circle cx="-13" cy="4" r="2"/><circle cx="13" cy="5" r="2"/>
+            </g>
+          </g>
+        </svg>`;
+    }
+
+    function launchLilies(count) {
+      for (let i = 0; i < count; i++) {
+        setTimeout(() => {
+          const lily = document.createElement('span');
+          lily.className = 'falling-lily';
+
+          const size = 28 + Math.random() * 26;
+          const startRot = Math.random() * 180 - 90;
+          const endRot = startRot + 280 + Math.random() * 260;
+
+          lily.style.left = (Math.random() * 96) + 'vw';
+          lily.style.setProperty('--size', size + 'px');
+          lily.style.setProperty('--drift', (Math.random() * 180 - 90) + 'px');
+          lily.style.setProperty('--duration', (5.3 + Math.random() * 3.8) + 's');
+          lily.style.setProperty('--start-rot', startRot + 'deg');
+          lily.style.setProperty('--end-rot', endRot + 'deg');
+          lily.innerHTML = lilyMarkup();
+
+          document.body.appendChild(lily);
+          lily.addEventListener('animationend', () => lily.remove());
+        }, i * 115);
+      }
+    }
+  </script>
+</body>
+</html>
